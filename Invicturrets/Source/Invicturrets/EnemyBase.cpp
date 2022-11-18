@@ -65,8 +65,8 @@ void AEnemyBase::DoDamage_Implementation(float Damage)
 
 	if(CurrentHealth<= 0.f)
 	{
-		//GM Mode Enemy Killed call
-		//InvicturretGMRef->
+	
+		InvicturretGMRef->EnemyKilled();
 
 		this->Destroy();
 	}
@@ -77,19 +77,22 @@ void AEnemyBase::MoveToNextWaypoint()
 {
 	WaypointIndex++;
 
+	if (WaypointsSoftRef.Num()==0)
+	{
+		//not enough waypoints on this level
+		return;
+	}
+	
+
 	if(WaypointIndex >= WaypointsSoftRef.Num())
 	{
+		InvicturretGMRef->GameOver();
 		return;
 	} 
 
-	if((WaypointsSoftRef.Num()!= 0) && (WaypointsSoftRef.Num()==WaypointIndex))
-	{
-		//TODO: Game Mode Game Over call
-	}else
-	{
 		FStreamableManager AssetLoader;
 		AssetLoader.RequestAsyncLoad(WaypointsSoftRef[WaypointIndex].ToSoftObjectPath(), FStreamableDelegate::CreateUObject(this, &AEnemyBase::WaypointIsLoaded));
-	}
+
 }
 
 void AEnemyBase::WaypointIsLoaded()

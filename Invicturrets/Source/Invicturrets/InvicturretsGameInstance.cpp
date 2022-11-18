@@ -3,3 +3,7 @@
 
 #include "InvicturretsGameInstance.h"
 
+void UInvicturretsGameInstance::PlayMusic()
+{
+    //TODO PlayMusic here
+}

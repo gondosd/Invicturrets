@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameMode.h"
+#include "GameFramework/GameModeBase.h"
 #include "InvicturretsMenuGameModeBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class INVICTURRETS_API AInvicturretsMenuGameModeBase : public AGameMode
+class INVICTURRETS_API AInvicturretsMenuGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	

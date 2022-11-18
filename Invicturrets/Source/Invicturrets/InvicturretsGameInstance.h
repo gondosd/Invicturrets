@@ -14,4 +14,7 @@ class INVICTURRETS_API UInvicturretsGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 	
+public:
+
+	void PlayMusic();
 };
