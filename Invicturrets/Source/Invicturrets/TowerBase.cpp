@@ -95,7 +95,7 @@ void ATowerBase::Shoot()
 	TArray<AActor *> overlappedActors;
 	Sphere->GetOverlappingActors(OUT overlappedActors, TSubclassOf<AActor>());
 
-	DrawDebugSphere(GetWorld(), GetActorLocation(), Range, 12, FColor::Red, false, 0.1f);
+	//DrawDebugSphere(GetWorld(), GetActorLocation(), Range, 12, FColor::Red, false, 0.1f);
 
 	for (auto *Actor : overlappedActors)
 	{

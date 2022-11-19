@@ -16,6 +16,6 @@ class INVICTURRETS_API AInvicturretsPlayerControllerBase : public APlayerControl
 	
 	public:
 	AInvicturretsPlayerControllerBase();
-	
+
 };
 
