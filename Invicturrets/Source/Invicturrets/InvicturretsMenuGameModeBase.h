@@ -13,5 +13,17 @@ UCLASS()
 class INVICTURRETS_API AInvicturretsMenuGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+protected:
+
+	virtual void BeginPlay() override;
+
+private:
+
+	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UMenuWidget> MenuWidgetType;
+
+
 	
 };

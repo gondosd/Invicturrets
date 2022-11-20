@@ -14,4 +14,14 @@ class INVICTURRETS_API AHUDBase : public AHUD
 {
 	GENERATED_BODY()
 	
+protected:
+
+	virtual void BeginPlay() override;
+
+private:
+
+	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UHUDWidget> HUDWidgetType;
+
 };
