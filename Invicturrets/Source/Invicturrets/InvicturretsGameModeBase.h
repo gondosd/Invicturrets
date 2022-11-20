@@ -6,9 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "InvicturretsGameModeBase.generated.h"
 
-/**
- * 
- */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnemyKilledSignature, int32, NewKillCount);
+
 UCLASS()
 class INVICTURRETS_API AInvicturretsGameModeBase : public AGameModeBase
 {
@@ -45,7 +44,10 @@ public:
 	void GameOver();	
 
 	UFUNCTION(BlueprintCallable)
-	int32 GetLevelsEnemyCount();	
+	int32 GetLevelsEnemyCount() const;	
+
+	UPROPERTY(BlueprintAssignable)
+	FEnemyKilledSignature OnEnemyKilled;
 
 private:
 

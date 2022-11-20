@@ -16,5 +16,23 @@ class INVICTURRETS_API UInvicturretsGameInstance : public UGameInstance
 	
 public:
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void PlayMusic();
+
+	UFUNCTION(BlueprintCallable)
+	void SetPlayerName(FString InPlayerName);
+
+	UFUNCTION(BlueprintCallable)
+	FString GetPlayerName() const;
+
+
+private:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly,meta = (AllowPrivateAccess = "true"))
+	USoundBase* Music;
+
+	UPROPERTY(BlueprintReadWrite,meta = (AllowPrivateAccess = "true"))
+	UAudioComponent* MySoundComponent;
+
+	FString PlayerName;
 };

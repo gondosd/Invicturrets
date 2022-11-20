@@ -17,7 +17,7 @@ void AInvicturretsGameModeBase::BeginPlay()
 
     
     InvicturretsHUDRef = Cast<AHUDBase> (UGameplayStatics::GetPlayerController(this, 0)->GetHUD());
-    Cast<UInvicturretsGameInstance>(GetGameInstance())->PlayMusic();
+    //Cast<UInvicturretsGameInstance>(GetGameInstance())->PlayMusic();
 
     FTimerHandle UnusedHandle;
     GetWorldTimerManager().SetTimer(UnusedHandle, this, &AInvicturretsGameModeBase::TimerElapsed, InitialSpawnDelay, false);
@@ -27,8 +27,8 @@ void AInvicturretsGameModeBase::BeginPlay()
 void AInvicturretsGameModeBase::EnemyKilled()
 {
     KillCount++;
-
-    //TODO: Add Enemy Killed Delegate here for UI
+    OnEnemyKilled.Broadcast(KillCount);
+    
 
     if(KillCount>= LevelData->EnemyCountOnThisLevel)
     {
@@ -63,7 +63,7 @@ void AInvicturretsGameModeBase::GameOver()
     }
 }
 
-int32 AInvicturretsGameModeBase::GetLevelsEnemyCount()
+int32 AInvicturretsGameModeBase::GetLevelsEnemyCount() const
 {
     return LevelData->EnemyCountOnThisLevel;
 }
